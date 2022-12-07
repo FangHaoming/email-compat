@@ -1,0 +1,744 @@
+<style type="text/css">
+  body * {
+    box-sizing: border-box;
+    flex-shrink: 0;
+  }
+
+  body {
+    font-family: PingFangSC-Regular, Roboto, Helvetica Neue, Helvetica, Tahoma,
+      Arial, PingFang SC-Light, Microsoft YaHei;
+  }
+
+  input {
+    background-color: transparent;
+    border: 0;
+  }
+
+  button {
+    margin: 0;
+    padding: 0;
+    border: 1px solid transparent;
+    outline: none;
+    background-color: transparent;
+  }
+
+  button:active {
+    opacity: 0.6;
+  }
+
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .justify-start {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .justify-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .justify-end {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .justify-evenly {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .justify-around {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .justify-between {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .align-start {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .align-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .align-end {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .page {
+    background-color: rgba(255, 255, 255, 1);
+    position: relative;
+    width: 1920px;
+    height: 1400px;
+    overflow: hidden;
+  }
+
+  .box_1 {
+    height: 1400px;
+    background: url(https://rayvision-render-works.oss-cn-hangzhou.aliyuncs.com/assets/box_1.png) -4040px 0px no-repeat;
+    background-size: 6499px 8192px;
+    width: 100vw;
+  }
+
+  .section_1 {
+    background-color: rgba(246, 248, 250, 1);
+    width: 751px;
+    height: 1181px;
+    border: 1px solid rgba(221, 221, 221, 1);
+    margin: 50px;
+  }
+
+  .image_4 {
+    width: 710px;
+    height: 240px;
+    margin: 20px 0 0 21px;
+  }
+
+  .box_2 {
+    background-color: rgba(255, 255, 255, 1);
+    width: 710px;
+    height: 700px;
+    margin: 12px 0 0 21px;
+  }
+
+  .text-group_11 {
+    width: 100%;
+    height: 95px;
+    margin: 39px 0 0 0;
+  }
+
+  .paragraph_1 {
+    width: 100%;
+    height: 60px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 24px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: center;
+    line-height: 36px;
+  }
+
+  .text-wrapper_1 {
+    width: 100%;
+    height: 15px;
+    overflow-wrap: break-word;
+    font-size: 0;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 36px;
+    margin-top: 20px;
+  }
+
+  .text_1 {
+    width: 502px;
+    height: 15px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 36px;
+  }
+
+  .text_2 {
+    width: 502px;
+    height: 15px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 36px;
+  }
+
+  .section_11 {
+    width: 430px;
+    height: 50px;
+    margin: 30px 0 0 140px;
+  }
+
+  .box_4 {
+    background-image: linear-gradient(90deg,
+        rgba(0, 253, 176, 1) 0,
+        rgba(0, 253, 176, 1) 0,
+        rgba(247, 252, 42, 1) 100%,
+        rgba(247, 252, 42, 1) 100%);
+    border-radius: 25px;
+    width: 200px;
+    height: 50px;
+  }
+
+  .image-text_9 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text-group_7 {
+    width: 108px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 18px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 30px;
+  }
+
+  .thumbnail_3 {
+    width: 15px;
+    height: 17px;
+    margin-top: 1px;
+    margin-left: 9px;
+  }
+
+  .block_4 {
+    background-image: linear-gradient(90deg,
+        rgba(0, 253, 176, 1) 0,
+        rgba(0, 253, 176, 1) 0,
+        rgba(247, 252, 42, 1) 100%,
+        rgba(247, 252, 42, 1) 100%);
+    border-radius: 25px;
+    width: 200px;
+    height: 50px;
+  }
+
+  .image-text_10 {
+    width: 96px;
+    height: 18px;
+    margin: 16px 10px 0 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text-group_3 {
+    width: 71px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 18px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 36px;
+  }
+
+  .thumbnail_2 {
+    width: 15px;
+    height: 17px;
+    margin-top: 1px;
+    margin-left: 10px;
+  }
+
+  .section_12 {
+    width: 618px;
+    height: 67px;
+    margin: 40px 0 0 40px;
+  }
+
+  .group_11 {
+    position: relative;
+    width: 120px;
+    height: 27px;
+  }
+
+  .section_2 {
+    background-image: linear-gradient(90deg,
+        rgba(0, 253, 176, 1) 0,
+        rgba(0, 253, 176, 1) 0,
+        rgba(247, 252, 42, 1) 100%,
+        rgba(247, 252, 42, 1) 100%);
+    border-radius: 8px;
+    width: 120px;
+    height: 16px;
+    margin-top: 11px;
+  }
+
+  .text_3 {
+    position: absolute;
+    left: 8px;
+    top: 0;
+    width: 96px;
+    height: 24px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 24px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 36px;
+  }
+
+  .text-wrapper_2 {
+    width: 448px;
+    height: 64px;
+    overflow-wrap: break-word;
+    font-size: 0;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+    margin-top: 3px;
+  }
+
+  .text_4 {
+    width: 448px;
+    height: 64px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_5 {
+    width: 448px;
+    height: 64px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_6 {
+    width: 448px;
+    height: 64px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_7 {
+    width: 448px;
+    height: 64px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_8 {
+    width: 448px;
+    height: 64px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .section_13 {
+    width: 631px;
+    height: 196px;
+    margin: 27px 0 0 39px;
+  }
+
+  .box_6 {
+    background-color: rgba(255, 255, 255, 1);
+    width: 311px;
+    height: 196px;
+    border: 1px solid rgba(241, 246, 245, 1);
+  }
+
+  .image_8 {
+    width: 109px;
+    height: 28px;
+    margin: 20px 0 0 21px;
+  }
+
+  .text_13 {
+    width: 273px;
+    height: 66px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 12px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 18px;
+    margin: 19px 0 0 18px;
+  }
+
+  .text-wrapper_14 {
+    width: 191px;
+    height: 15px;
+    margin: 27px 0 21px 60px;
+  }
+
+  .text-wrapper_3 {
+    width: 69px;
+    height: 15px;
+    overflow-wrap: break-word;
+    color: rgba(81, 149, 245, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 18px;
+  }
+
+  .text-wrapper_4 {
+    width: 70px;
+    height: 15px;
+    overflow-wrap: break-word;
+    color: rgba(81, 149, 245, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 18px;
+  }
+
+  .box_7 {
+    background-color: rgba(255, 255, 255, 1);
+    width: 311px;
+    height: 196px;
+    border: 1px solid rgba(241, 246, 245, 1);
+  }
+
+  .image_9 {
+    width: 131px;
+    height: 28px;
+    margin: 20px 0 0 31px;
+  }
+
+  .text-wrapper_5 {
+    width: 276px;
+    height: 67px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 12px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 18px;
+    margin: 19px 0 0 16px;
+  }
+
+  .text-wrapper_15 {
+    width: 237px;
+    height: 14px;
+    margin: 26px 0 22px 38px;
+  }
+
+  .text-wrapper_6 {
+    width: 102px;
+    height: 14px;
+    overflow-wrap: break-word;
+    color: rgba(81, 149, 245, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 24px;
+  }
+
+  .text-wrapper_7 {
+    width: 101px;
+    height: 14px;
+    overflow-wrap: break-word;
+    color: rgba(81, 149, 245, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 24px;
+  }
+
+  .section_10 {
+    background-color: rgba(255, 255, 255, 1);
+    height: 101px;
+    border: 1px solid rgba(241, 246, 245, 1);
+    width: 631px;
+    margin: 10px 0 45px 39px;
+  }
+
+  .section_14 {
+    width: 451px;
+    height: 29px;
+    margin: 24px 0 0 21px;
+  }
+
+  .image_11 {
+    width: 128px;
+    height: 23px;
+    margin-top: 6px;
+  }
+
+  .text_30 {
+    width: 284px;
+    height: 13px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 12px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 18px;
+  }
+
+  .text-wrapper_16 {
+    width: 228px;
+    height: 14px;
+    margin: 4px 0 30px 189px;
+  }
+
+  .text_31 {
+    width: 141px;
+    height: 14px;
+    overflow-wrap: break-word;
+    color: rgba(81, 149, 245, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 18px;
+  }
+
+  .text_32 {
+    width: 56px;
+    height: 14px;
+    overflow-wrap: break-word;
+    color: rgba(81, 149, 245, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 18px;
+  }
+
+  .group_12 {
+    width: 487px;
+    height: 122px;
+    margin: 21px 0 66px 72px;
+  }
+
+  .image_7 {
+    width: 122px;
+    height: 122px;
+  }
+
+  .text-wrapper_8 {
+    width: 320px;
+    height: 88px;
+    overflow-wrap: break-word;
+    font-size: 0;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+    margin-top: 19px;
+  }
+
+  .paragraph_2 {
+    width: 312px;
+    height: 88px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_25 {
+    width: 316px;
+    height: 88px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .paragraph_3 {
+    width: 310px;
+    height: 88px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_26 {
+    width: 310px;
+    height: 88px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .paragraph_4 {
+    width: 310px;
+    height: 88px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_27 {
+    width: 310px;
+    height: 88px;
+    overflow-wrap: break-word;
+    color: rgba(63, 182, 255, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+</style>
+
+<div class="page flex-col">
+  <div class="box_1 flex-col">
+    <div class="section_1 flex-col">
+      <img class="image_4" referrerpolicy="no-referrer"
+        src="https://rayvision-render-works.oss-cn-hangzhou.aliyuncs.com/assets/banner.png" />
+      <div class="box_2 flex-col">
+        <div class="text-group_11 flex-col justify-between">
+          <span class="paragraph_1">恭喜您已成功报名“算联视界，元生万象”<br />——第二届3D渲染动画创作大赛！</span>
+          <div class="text-wrapper_1">
+            <span class="text_1">以下是参赛相关内容，请认真阅读，最后</span>
+            <span class="text_2">根据要求填写作品信息收集表及提交作品</span>
+          </div>
+        </div>
+        <div class="section_11 flex-row justify-between">
+          <div class="box_4 flex-row">
+            <a class="image-text_9 flex-row" href="https://www.renderbus.com/rrc/%E5%A4%A7%E8%B5%9B%E8%B5%84%E6%96%99%E5%8C%85%20-%20%E7%AC%AC%E4%BA%8C%E5%B1%8A3D%E6%B8%B2%E6%9F%93%E5%8A%A8%E7%94%BB%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.rar">
+              <span class="text-group_7">下载大赛资料</span>
+              <img class="thumbnail_3" referrerpolicy="no-referrer"
+                src="https://rayvision-render-works.oss-cn-hangzhou.aliyuncs.com/assets/download.png" />
+            </a>
+          </div>
+          <div class="block_4 flex-row">
+            <a class="image-text_10 flex-row" href="https://www.renderbus.com/rc-submit.html">
+              <span class="text-group_3">上传作品</span>
+              <img class="thumbnail_2" referrerpolicy="no-referrer"
+                src="https://rayvision-render-works.oss-cn-hangzhou.aliyuncs.com/assets/upload.png" />
+            </a>
+          </div>
+        </div>
+        <div class="section_12 flex-row justify-between">
+          <div class="group_11 flex-col">
+            <div class="section_2 flex-col"></div>
+            <span class="text_3">创作支持</span>
+          </div>
+          <div class="text-wrapper_2">
+            <span class="text_4">参赛者可在参赛期间免费使用Renderbus云渲染服务、青椒云云桌面服务与万生华态数字资产，请提前注册好您所需的平台账号，及时联系工作人员微信</span>
+            <span class="text_5">【rayvision1】</span>
+            <span class="text_6">，备注</span>
+            <span class="text_7">“渲染大赛”</span>
+            <span class="text_8">，登记领取赛事专属代金券！</span>
+          </div>
+        </div>
+        <div class="section_13 flex-row justify-between">
+          <div class="box_6 flex-col">
+            <img class="image_8" referrerpolicy="no-referrer"
+              src="https://rayvision-render-works.oss-cn-hangzhou.aliyuncs.com/assets/qing_logo.png" />
+            <span class="text_13">青椒云工作站是瑞云科技推出的一款旨在为用户提供安全、稳定、流畅、可靠的高性能云电脑，赋能视觉设计、影视制作、教育培训、政企办公等行业，打造云服务生态闭环。</span>
+            <div class="text-wrapper_14 flex-row justify-between">
+              <a class="text-wrapper_3" href="https://www.qingjiaocloud.com/">了解青椒云</a>
+              <a class="text-wrapper_4" href="https://www.qingjiaocloud.com/download/">青椒云下载</a>
+            </div>
+          </div>
+          <div class="box_7 flex-col">
+            <img class="image_9" referrerpolicy="no-referrer"
+              src="https://rayvision-render-works.oss-cn-hangzhou.aliyuncs.com/assets/Renderbus_b.png" />
+            <span
+              class="text-wrapper_5">Renderbus云渲染农场是瑞云科技推出的强大的单集群超1W节点的云渲染平台，灵活调度，随时可用。兼容大部分主流软件和插件，奥斯卡级专业云渲染团队，7X24小时在线技术支持。</span>
+            <div class="text-wrapper_15 flex-row justify-between">
+              <a class="text-wrapper_6" href="https://www.renderbus.com/">了解Renderbus</a>
+              <a class="text-wrapper_7" href="https://www.renderbus.com/download.html">Renderbus下载</a>
+            </div>
+          </div>
+        </div>
+        <div class="section_10 flex-col">
+          <div class="section_14 flex-row justify-between">
+            <img class="image_11" referrerpolicy="no-referrer"
+              src="https://rayvision-render-works.oss-cn-hangzhou.aliyuncs.com/assets/echo.png" />
+            <span class="text_30">万生华态是一家拥有海量高精度3D资产库平台的公司。</span>
+          </div>
+          <div class="text-wrapper_16 flex-row justify-between">
+            <a class="text_31" href="https://pbrmax.com/?activeIndex=0&query=%7B%22pageNum%22%3A1%7D">PBRMAX数字资产库→</a>
+            <a class="text_32" href="https://mp.weixin.qq.com/s?__biz=Mzg5MjU0MzkxNw==&mid=100004795&idx=1&sn=dd4a3b839c43906670206429a7970aa6&chksm=403d2579774aac6f909ae2019e316f580c5fa5eb2fe61e475cfc5f0014b6e822a474c9fdc9d6#rd">使用教程</a>
+          </div>
+        </div>
+      </div>
+      <div class="group_12 flex-row justify-between">
+        <img class="image_7" referrerpolicy="no-referrer"
+          src="https://rayvision-render-works.oss-cn-hangzhou.aliyuncs.com/assets/qr_120.png" />
+        <div class="text-wrapper_8">
+          <span class="paragraph_2">欢迎加入赛事交流群，群内可自由提问&amp;交流<br />扫码添加小助手微信，或微信添加</span>
+          <span class="text_25">【rayvision1】，</span>
+          <span class="paragraph_3"><br />备注“</span>
+          <span class="text_26">渲染大赛</span>
+          <span class="paragraph_4">”，小助手会拉你进群<br />大赛地址:</span>
+          <a class="text_27" href="https://www.renderbus.com/rc.html">https://www.renderbus.com/rc.html</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

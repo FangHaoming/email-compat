@@ -1,55 +1,832 @@
----
-layout: index-layout
-subject: My Email Templates
----
+<style type="text/css">
+  body * {
+    box-sizing: border-box;
+    flex-shrink: 0;
+  }
 
-<spacer size="16"></spacer>
+  body {
+    font-family: PingFangSC-Regular, Roboto, Helvetica Neue, Helvetica, Tahoma,
+      Arial, PingFang SC-Light, Microsoft YaHei;
+  }
 
-<container>
+  input {
+    background-color: transparent;
+    border: 0;
+  }
 
-  <spacer size="24"></spacer>
-  
-  <row>
-    <columns small="12">
+  button {
+    margin: 0;
+    padding: 0;
+    border: 1px solid transparent;
+    outline: none;
+    background-color: transparent;
+  }
 
-    <p class="lead">Hi there!</p>
-    <p style="color: #484848; line-height: 1.5;">Thanks for downloading <a href="https://get.foundation/emails/docs/">Foundation for Emails!</a> Your days of coding up painful HTML emails are officially over. You’ll soon be cranking out some slick, responsive emails in no time! To help get you up and running, we've put together 11 templates for the most common email use cases including newsletters, transactional emails, and marketing blasts. Feel free to customize them to your hearts content.</p>
+  button:active {
+    opacity: 0.6;
+  }
 
-    <spacer size="16"></spacer>
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+  }
 
-    <center>
-      <menu class="vertical">
-        <item href="{{root}}basic.html" target="_blank">Basic Template</item>
-        <item href="{{root}}drip.html" target="_blank">Drip Template</item>
-        <item href="{{root}}hero.html" target="_blank">Hero Template</item>
-        <item href="{{root}}marketing.html" target="_blank">Marketing Template</item>
-        <item href="{{root}}newsletter.html" target="_blank">Newsletter Template</item>
-        <item href="{{root}}newsletter-2.html" target="_blank">Newsletter 2 Template</item>
-        <item href="{{root}}order.html" target="_blank">Order Template</item>
-        <item href="{{root}}password.html" target="_blank">Password Template</item>
-        <item href="{{root}}sidebar.html" target="_blank">Sidebar Template</item>
-        <item href="{{root}}sidebar-hero.html" target="_blank">Sidebar Hero Template</item>
-        <item href="{{root}}welcome.html" target="_blank">Welcome Template</item>
-      </menu>
-    </center>
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+  }
 
-    <spacer size="16"></spacer>
+  .justify-start {
+    display: flex;
+    justify-content: flex-start;
+  }
 
-    <p>Happy Coding,</p>
-    <p>The Foundation Team</p>
+  .justify-center {
+    display: flex;
+    justify-content: center;
+  }
 
+  .justify-end {
+    display: flex;
+    justify-content: flex-end;
+  }
 
-    <spacer size="16"></spacer>
+  .justify-evenly {
+    display: flex;
+    justify-content: space-evenly;
+  }
 
-    </columns>
-  </row>
-</container>
+  .justify-around {
+    display: flex;
+    justify-content: space-around;
+  }
 
-<spacer size="16"></spacer>
+  .justify-between {
+    display: flex;
+    justify-content: space-between;
+  }
 
-<center>
-  <small>Keep on keepin' on. &lt;3 <a style="color: #cacaca; text-decoration: underline;" href="https://zurb.com/">ZURB</a> </small>
-</center>
+  .align-start {
+    display: flex;
+    align-items: flex-start;
+  }
 
-<spacer size="16"></spacer>
+  .align-center {
+    display: flex;
+    align-items: center;
+  }
 
+  .align-end {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .page {
+    background-color: rgba(255, 255, 255, 1);
+    position: relative;
+    height: 1400px;
+    overflow: hidden;
+  }
+
+  .section_1 {
+    background-color: rgba(246, 248, 250, 1);
+    width: 751px;
+    height: 1081px;
+    border: 1px solid rgba(221, 221, 221, 1);
+  }
+
+  .image_4 {
+    width: 710px;
+    height: 240px;
+    margin: 20px 0 0 21px;
+  }
+
+  .box_2 {
+    background-color: rgba(255, 255, 255, 1);
+    width: 710px;
+    height: 640px;
+    margin: 12px 0 0 21px;
+  }
+
+  .text-group_4 {
+    width: 502px;
+    height: 95px;
+    margin: 39px 0 0 104px;
+  }
+
+  .paragraph_1 {
+    width: 442px;
+    height: 60px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 24px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: center;
+    line-height: 36px;
+    margin-left: 30px;
+  }
+
+  .text-wrapper_1 {
+    width: 502px;
+    height: 15px;
+    overflow-wrap: break-word;
+    font-size: 0;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 36px;
+    margin-top: 20px;
+  }
+
+  .text_1 {
+    width: 502px;
+    height: 15px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 36px;
+  }
+
+  .text_2 {
+    width: 502px;
+    height: 15px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 36px;
+  }
+
+  .group_2 {
+    width: 615px;
+    height: 65px;
+    margin: 0 0 0 40px;
+  }
+
+  .section_3 {
+    position: relative;
+    width: 120px;
+    height: 27px;
+  }
+
+  .section_2 {
+    background-image: linear-gradient(90deg,
+        rgba(0, 253, 176, 1) 0,
+        rgba(0, 253, 176, 1) 0,
+        rgba(247, 252, 42, 1) 100%,
+        rgba(247, 252, 42, 1) 100%);
+    border-radius: 8px;
+    width: 120px;
+    height: 16px;
+    margin-top: 11px;
+  }
+
+  .text_3 {
+    position: absolute;
+    left: 8px;
+    top: 0;
+    width: 96px;
+    height: 24px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 24px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 36px;
+  }
+
+  .text-wrapper_2 {
+    width: 422px;
+    height: 63px;
+    overflow-wrap: break-word;
+    font-size: 0;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+    margin-top: 2px;
+  }
+
+  .text_4 {
+    width: 422px;
+    height: 63px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_5 {
+    width: 422px;
+    height: 63px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_6 {
+    width: 422px;
+    height: 63px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_7 {
+    width: 422px;
+    height: 63px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_8 {
+    width: 422px;
+    height: 63px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_9 {
+    width: 422px;
+    height: 63px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_10 {
+    width: 422px;
+    height: 63px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_11 {
+    width: 422px;
+    height: 63px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_12 {
+    width: 422px;
+    height: 63px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .group_3 {
+    width: 593px;
+    height: 48px;
+    margin: 32px 0 0 59px;
+  }
+
+  .image_5 {
+    width: 117px;
+    height: 30px;
+    margin-top: 7px;
+  }
+
+  .text_13 {
+    width: 419px;
+    height: 48px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 12px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 18px;
+  }
+
+  .text-wrapper_3 {
+    width: 280px;
+    height: 15px;
+    overflow-wrap: break-word;
+    font-size: 0;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 24px;
+    margin: 19px 0 0 232px;
+  }
+
+  .text_14 {
+    width: 280px;
+    height: 15px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 24px;
+  }
+
+  .text_15 {
+    width: 280px;
+    height: 15px;
+    overflow-wrap: break-word;
+    color: rgba(81, 149, 245, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 24px;
+  }
+
+  .text-wrapper_4 {
+    width: 378px;
+    height: 16px;
+    overflow-wrap: break-word;
+    font-size: 0;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 24px;
+    margin: 9px 0 0 232px;
+  }
+
+  .text_16 {
+    width: 378px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 24px;
+  }
+
+  .text_17 {
+    width: 378px;
+    height: 16px;
+    overflow-wrap: break-word;
+    color: rgba(81, 149, 245, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 24px;
+  }
+
+  .group_4 {
+    width: 597px;
+    height: 106px;
+    margin: 22px 0 0 54px;
+  }
+
+  .image_6 {
+    width: 139px;
+    height: 30px;
+    margin-top: 7px;
+  }
+
+  .text-group_5 {
+    width: 419px;
+    height: 106px;
+  }
+
+  .text-wrapper_5 {
+    width: 418px;
+    height: 48px;
+    overflow-wrap: break-word;
+    font-size: 0;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 18px;
+    margin-left: 1px;
+  }
+
+  .text_18 {
+    width: 418px;
+    height: 48px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 12px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 18px;
+  }
+
+  .text_19 {
+    width: 418px;
+    height: 48px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 12px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 18px;
+  }
+
+  .text-wrapper_6 {
+    width: 309px;
+    height: 15px;
+    overflow-wrap: break-word;
+    font-size: 0;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 24px;
+    margin-top: 19px;
+  }
+
+  .text_20 {
+    width: 309px;
+    height: 15px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 24px;
+  }
+
+  .text_21 {
+    width: 309px;
+    height: 15px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 24px;
+  }
+
+  .text_22 {
+    width: 309px;
+    height: 15px;
+    overflow-wrap: break-word;
+    color: rgba(81, 149, 245, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 24px;
+  }
+
+  .text-wrapper_7 {
+    width: 415px;
+    height: 15px;
+    overflow-wrap: break-word;
+    font-size: 0;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 24px;
+    margin-top: 9px;
+  }
+
+  .text_23 {
+    width: 415px;
+    height: 15px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 24px;
+  }
+
+  .text_24 {
+    width: 415px;
+    height: 15px;
+    overflow-wrap: break-word;
+    color: rgba(81, 149, 245, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 24px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .block_4,
+  .block_5 {
+    background-image: linear-gradient(90deg,
+        rgba(0, 253, 176, 1) 0,
+        rgba(0, 253, 176, 1) 0,
+        rgba(247, 252, 42, 1) 100%,
+        rgba(247, 252, 42, 1) 100%);
+    border-radius: 25px;
+    width: 200px;
+    height: 50px;
+    margin: 50px 0 48px;
+  }
+
+  .block_4 {
+    margin-right: 30px;
+  }
+
+  .upload-button,
+  .download-button {
+    width: 200px;
+    display: flex;
+    align-items: center;
+  }
+
+  .image-text_2 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .text-group_3 {
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    height: 18px;
+    font-size: 18px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .thumbnail_2 {
+    width: 15px;
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+
+  .section_4 {
+    width: 482px;
+    height: 122px;
+    margin: 23px 0 24px 70px;
+    align-items: center;
+  }
+
+  .image_7 {
+    width: 122px;
+    height: 122px;
+  }
+
+  .text-wrapper_8 {
+    width: 318px;
+    height: 87px;
+    overflow-wrap: break-word;
+    font-size: 0;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+
+  .paragraph_2 {
+    width: 318px;
+    height: 87px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_25 {
+    width: 318px;
+    height: 87px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .paragraph_3 {
+    width: 318px;
+    height: 87px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_26 {
+    width: 318px;
+    height: 87px;
+    overflow-wrap: break-word;
+    color: rgba(5, 7, 6, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .paragraph_4 {
+    width: 318px;
+    height: 87px;
+    overflow-wrap: break-word;
+    color: rgba(102, 102, 102, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .text_27 {
+    width: 318px;
+    height: 87px;
+    overflow-wrap: break-word;
+    color: rgba(63, 182, 255, 1);
+    font-size: 14px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  a {
+    text-decoration: none !important;
+  }
+</style>
+
+<div>
+  <div class="page flex-col">
+    <div class="box_1 flex-col">
+      <div class="section_1 flex-col">
+        <img class="image_4" referrerpolicy="no-referrer"
+          src="https://rayvision-render-works.oss-cn-hangzhou.aliyuncs.com/assets/banner.png" />
+        <div class="box_2 flex-col">
+          <div class="text-group_4 flex-col justify-between">
+            <span class="paragraph_1">恭喜您已成功报名“算联视界，元生万象”<br />——第二届3D渲染动画创作大赛！</span>
+            <div class="text-wrapper_1">
+              <span class="text_1">以下是参赛相关内容，请认真阅读，最后</span>
+              <span class="text_2">根据要求填写作品信息收集表及提交作品</span>
+            </div>
+          </div>
+          <div class="button-container">
+            <div class="block_4 flex-row">
+              <a class="download-button" download="大赛资料包 - 第二届3D渲染动画创作大赛.rar"
+                href="https://rayvision-render-works.oss-cn-hangzhou.aliyuncs.com/assets/%E5%A4%A7%E8%B5%9B%E8%B5%84%E6%96%99%E5%8C%85%20-%20%E7%AC%AC%E4%BA%8C%E5%B1%8A3D%E6%B8%B2%E6%9F%93%E5%8A%A8%E7%94%BB%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.rar">
+                <div class="image-text_2 flex-row justify-between">
+                  <span class="text-group_3">下载大赛资料</span>
+                  <img class="thumbnail_2" referrerpolicy="no-referrer"
+                    src="https://rayvision-render-works.oss-cn-hangzhou.aliyuncs.com/assets/download.png" />
+                </div>
+              </a>
+            </div>
+            <div class="block_5 flex-row">
+              <a class="upload-button" href="https://www.renderbus.com/rc-submit.html">
+                <div class="image-text_2 flex-row justify-between">
+                  <span class="text-group_3">上传作品</span>
+                  <img class="thumbnail_2" referrerpolicy="no-referrer"
+                    src="https://rayvision-render-works.oss-cn-hangzhou.aliyuncs.com/assets/upload.png" />
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="group_2 flex-row justify-between">
+            <div class="section_3 flex-col">
+              <div class="section_2 flex-col"></div>
+              <span class="text_3">创作支持</span>
+            </div>
+            <div class="text-wrapper_2">
+              <span class="text_4">本次大赛</span>
+              <span class="text_5">免费为参赛选手提供高配云桌面和云渲染</span>
+              <span class="text_6">，请大家及时联系工作人员微信</span>
+              <span class="text_7">【rayvision1】</span>
+              <span class="text_8">，备注“</span>
+              <span class="text_9">渲染大赛</span>
+              <span class="text_10">”，登记领取</span>
+              <span class="text_11">专属账号</span>
+              <span class="text_12">，解决您创作的后顾之忧！</span>
+            </div>
+          </div>
+          <div class="group_3 flex-row justify-between">
+            <img class="image_5" referrerpolicy="no-referrer"
+              src="https://rayvision-render-works.oss-cn-hangzhou.aliyuncs.com/assets/qing_logo.png" />
+            <span class="text_13">青椒云工作站是瑞云科技推出的一款旨在为用户提供安全、稳定、流畅、可靠的高性能云电脑，赋能视觉设计、影视制作、教育培训、政企办公等行业，打造云服务生态闭环。</span>
+          </div>
+          <div class="text-wrapper_3">
+            <span class="text_14">了解青椒云:</span>
+            <a class="text_15" href="https://www.renderbus.com/">https://www.renderbus.com/</a>
+          </div>
+          <div class="text-wrapper_4">
+            <span class="text_16">青椒云下载:</span>
+            <a class="text_17"
+              href="https://www.qingjiaocloud.com/download/">https://www.qingjiaocloud.com/download/</a>
+          </div>
+          <div class="group_4 flex-row justify-between">
+            <img class="image_6" referrerpolicy="no-referrer"
+              src="https://rayvision-render-works.oss-cn-hangzhou.aliyuncs.com/assets/Renderbus_b.png" />
+            <div class="text-group_5 flex-col">
+              <div class="text-wrapper_5">
+                <span class="text_18">Renderbus云渲染农场是瑞云科技推出的强大的单集群超1W节点的云渲染平台，灵活调度，随时可用。兼容大部分主流软件和插件，奥斯卡级专业云渲染团队，</span>
+                <span class="text_19">7X24小时在线技术支持。</span>
+              </div>
+              <div class="text-wrapper_6">
+                <span class="text_20">了解Renderbus:</span>
+                <span class="text_21"></span>
+                <a class="text_22" href="https://www.renderbus.com/">https://www.renderbus.com/</a>
+              </div>
+              <div class="text-wrapper_7">
+                <span class="text_23">Renderbus下载:</span>
+                <a class="text_24"
+                  href="https://www.renderbus.com/download.html">https://www.renderbus.com/download.html</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section_4 flex-row justify-between">
+          <img class="image_7" referrerpolicy="no-referrer"
+            src="https://rayvision-render-works.oss-cn-hangzhou.aliyuncs.com/assets/qr_120.png" />
+          <div class="text-wrapper_8">
+            <span class="paragraph_2">欢迎加入赛事交流群，群内可自由提问&amp;交流<br />扫码添加小助手微信，或微信添加</span>
+            <span class="text_25">【rayvision1】</span>
+            <span class="paragraph_3">，<br />备注“</span>
+            <span class="text_26">渲染大赛</span>
+            <span class="paragraph_4">”，小助手会拉你进群<br />大赛地址:</span>
+            <a class="text_27" href="https://www.renderbus.com/rc.html">https://www.renderbus.com/rc.html</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
